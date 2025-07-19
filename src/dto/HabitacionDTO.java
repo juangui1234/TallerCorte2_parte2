@@ -1,13 +1,13 @@
 package dto;
 
-public class Habitacion {
+public class HabitacionDTO {
 
-    int numero;
-    String tipo;   // (estándar, suite ecológica, familiar)
+    private int numero;
+    private String tipo;   // (estándar, suite ecológica, familiar)
     private int capacidad;
     private String estado;  //(libre, ocupada, mantenimiento)
 
-    public Habitacion(int numero, String tipo, int capacidad, String estado) {
+    public HabitacionDTO(int numero, String tipo, int capacidad, String estado) {
         this.numero = numero;
         this.tipo = tipo;
         this.capacidad = capacidad;
@@ -46,6 +46,3 @@ public class Habitacion {
         this.estado = estado;
     }
 }
-
-
-    // 🔗 Relación: 1 a muchos con dto.Reserva.

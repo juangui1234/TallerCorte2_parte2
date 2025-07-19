@@ -1,4 +1,6 @@
 package modelo;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Huesped {
 
@@ -7,15 +9,27 @@ public class Huesped {
     private String correo;
     private String telefono;
 
+    // Relación: 1 a muchos con Reserva
+    private List<Reserva> reservas;
+
     //constructor
     public Huesped(String nombre, String documento, String correo, String telefono) {
         this.nombre = nombre;
         this.documento = documento;
         this.correo = correo;
         this.telefono = telefono;
+        this.reservas = new ArrayList<>();
+    }
+    //getters y setters
+
+    public List<Reserva> getReservas() {
+        return reservas;
     }
 
-    //getters y setters
+    public void agregarReserva(Reserva reserva) {
+        reservas.add(reserva);
+    }
+
     public String getNombre() {
         return nombre;
     }
@@ -48,6 +62,10 @@ public class Huesped {
         this.telefono = telefono;
     }
 
-    // Relación: 1 a muchos con dto.Reserva.
+    // Para mostrar en JComboBox o en tablas
+    @Override
+    public String toString() {
+        return nombre + " (" + documento + ")";
+    }
 
 }

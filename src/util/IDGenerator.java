@@ -1,4 +1,4 @@
-package modelo;
+package util;
 
 
     public class IDGenerator {
@@ -12,7 +12,5 @@ package modelo;
             contador++; // Incrementamos para el siguiente ID
             return id;
         }
-
-
     // generateReservaId()
 }

@@ -10,9 +10,9 @@ public class Main {
     }
 }
         /* Llamadas al metodo estático
-        String id1 = dto.IDGenerator.generateReservaId();
-        String id2 = dto.IDGenerator.generateReservaId();
-        String id3 = dto.IDGenerator.generateReservaId();
+        String id1 = dto.IDGeneratorDTO.generateReservaId();
+        String id2 = dto.IDGeneratorDTO.generateReservaId();
+        String id3 = dto.IDGeneratorDTO.generateReservaId();
 
         // Mostramos los IDs generados
         System.out.println("ID 1: " + id1); // RES-1

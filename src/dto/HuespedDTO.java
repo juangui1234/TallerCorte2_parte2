@@ -1,6 +1,6 @@
 package dto;
 
-public class Huesped {
+public class HuespedDTO {
 
     private String nombre;
     private String documento;
@@ -8,7 +8,7 @@ public class Huesped {
     private String telefono;
 
     //constructor
-    public Huesped(String nombre, String documento, String correo, String telefono) {
+    public HuespedDTO(String nombre, String documento, String correo, String telefono) {
         this.nombre = nombre;
         this.documento = documento;
         this.correo = correo;
@@ -47,7 +47,6 @@ public class Huesped {
     public void setTelefono(String telefono) {
         this.telefono = telefono;
     }
-
-    // Relación: 1 a muchos con dto.Reserva.
+    
 
 }

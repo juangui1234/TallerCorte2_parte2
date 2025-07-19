@@ -65,6 +65,7 @@ public class MenuPrincipal extends JFrame {
             PanelRegistrarConsulta panel = new PanelRegistrarConsulta(crudMascotas);
             desktopPane.add(panel);
             panel.setVisible(true);
+
         });
         menuArchivo.add(itemRegistrarConsulta);
 
@@ -85,6 +86,7 @@ public class MenuPrincipal extends JFrame {
 
         menuArchivo.add(itemNuevo);
         menuArchivo.addSeparator();
+
         menuArchivo.add(itemSalir);
         return menuArchivo;
     }*/
