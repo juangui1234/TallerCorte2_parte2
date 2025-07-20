@@ -20,17 +20,17 @@ public class ReservaDAO {
         return new ArrayList<>(reservas); // Retorna copia para proteger la lista original
     }
     //buscar por ID
-    public Reserva buscarPorId(int idReserva) {
+    public Reserva buscarPorId(String idReserva) {
         for (Reserva r : reservas) {
-            if (r.getIdReserva() == idReserva) {
+            if (r.getIdReserva().equals(idReserva)) {
                 return r;
             }
         }
         return null;
     }
     //eliminar por ID
-    public boolean eliminarReserva(int idReserva) {
-        return reservas.removeIf(r -> r.getIdReserva() == idReserva);
+    public boolean eliminarReserva(String idReserva) {
+        return reservas.removeIf(r -> r.getIdReserva().equals(idReserva));
     }
     //buscar reservas por número de habitación (para validar disponibilidad)
     public List<Reserva> buscarPorNumeroHabitacion(int numeroHabitacion) {

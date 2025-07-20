@@ -4,13 +4,13 @@ import java.time.LocalDate;
 
 public class Reserva {
 
-    private int idReserva;
+    private String idReserva;
     private LocalDate fechaEntrada;
     private LocalDate fechaSalida;
     private Huesped huesped;
     private Habitacion habitacion;
 
-    public Reserva(int idReserva, LocalDate fechaEntrada, LocalDate fechaSalida, Huesped huesped, Habitacion habitacion) {
+    public Reserva(String idReserva, LocalDate fechaEntrada, LocalDate fechaSalida, Huesped huesped, Habitacion habitacion) {
         setIdReserva(idReserva);
         setFechaEntrada(fechaEntrada);
         setFechaSalida(fechaSalida);
@@ -18,11 +18,11 @@ public class Reserva {
         setHabitacion(habitacion);
     }
 
-    public int getIdReserva() {
+    public String getIdReserva() {
         return idReserva;
     }
 
-    public void setIdReserva(int idReserva) {
+    public void setIdReserva(String idReserva) {
         this.idReserva = idReserva;
     }
 

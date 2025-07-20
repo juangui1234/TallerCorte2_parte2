@@ -4,7 +4,7 @@ import java.time.LocalDate;
 
 public class ReservaDTO {
 
-    private int idReserva;
+    private String idReserva;
     private LocalDate fechaEntrada;
     private LocalDate fechaSalida;
     private String nombreHuesped;
@@ -13,7 +13,7 @@ public class ReservaDTO {
     private String tipoHabitacion;
 
     //constructor
-    public ReservaDTO(int idReserva, LocalDate fechaEntrada, LocalDate fechaSalida,
+    public ReservaDTO(String idReserva, LocalDate fechaEntrada, LocalDate fechaSalida,
                       String nombreHuesped, String documentoHuesped,
                       int numeroHabitacion, String tipoHabitacion
     ) {
@@ -27,11 +27,11 @@ public class ReservaDTO {
 
     }
     //metodos gettes y setters
-    public int getIdReserva() {
+    public String getIdReserva() {
         return idReserva;
     }
 
-    public void setIdReserva(int idReserva) {
+    public void setIdReserva(String idReserva) {
         this.idReserva = idReserva;
     }
 
@@ -50,6 +50,11 @@ public class ReservaDTO {
     public void setNombreHuesped(String nombreHuesped) {
         this.nombreHuesped = nombreHuesped;
     }
+
+    public int getNumeroHabitacion() {
+        return numeroHabitacion;
+    }
+
     public void setNumeroHabitacion(int numeroHabitacion) {
         this.numeroHabitacion = numeroHabitacion;
     }

@@ -17,7 +17,7 @@ public class HabitacionDAO {
     }
     //leer
     public List<Habitacion> obtenerTodas() {
-        return new ArrayList<>(habitaciones); // Retorna copia para proteger la lista original
+        return new ArrayList<>(habitaciones); //retorna copia para proteger la lista original
     }
     //buscar por número de habitacion
     public Habitacion buscarPorNumero(int numero) {

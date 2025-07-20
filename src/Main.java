@@ -9,6 +9,18 @@ public class Main {
         });
     }
 }
+
+/*public class Main {
+    public static void main(String[] args) {
+        System.out.println(IDGenerator.generateHuespedId());     // HUE-1
+        System.out.println(IDGenerator.generateHabitacionId());  // HAB-1
+        System.out.println(IDGenerator.generateServicioId());    // SER-1
+        System.out.println(IDGenerator.generateReservaId());     // RES-1
+    }
+}
+
+
+
         /* Llamadas al metodo estático
         String id1 = dto.IDGeneratorDTO.generateReservaId();
         String id2 = dto.IDGeneratorDTO.generateReservaId();
