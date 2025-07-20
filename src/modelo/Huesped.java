@@ -1,6 +1,7 @@
 package modelo;
 import java.util.ArrayList;
 import java.util.List;
+import util.IDGenerator;
 
 public class Huesped {
 
@@ -10,9 +11,11 @@ public class Huesped {
     private String telefono;
     // Relación: 1 a muchos con Reserva
     private List <Reserva> reservas;
+    private String idHuesped;
 
     //constructor
     public Huesped(String nombre, String documento, String correo, String telefono) {
+        this.idHuesped = IDGenerator.generateHuespedId(); // ✅ ID automático
         this.nombre = nombre;
         this.documento = documento;
         setCorreo(correo); //validacion correo
@@ -20,6 +23,10 @@ public class Huesped {
         this.reservas = new ArrayList<>();
     }
     //getters y setters
+
+    public String getIdHuesped() {
+        return idHuesped;
+    }
 
     public List <Reserva> getReservas() {
         return reservas;
@@ -34,6 +41,9 @@ public class Huesped {
     }
 
     public void setNombre(String nombre) {
+        if (nombre == null || nombre.trim().isEmpty()) {
+            throw new IllegalArgumentException("El nombre no puede estar vacío.");
+        }
         this.nombre = nombre;
     }
 
@@ -62,6 +72,9 @@ public class Huesped {
     }
 
     public void setTelefono(String telefono) {
+        if (telefono == null || !telefono.matches("\\d+")) {
+            throw new IllegalArgumentException("El teléfono debe contener solo números.");
+        }
         this.telefono = telefono;
     }
 

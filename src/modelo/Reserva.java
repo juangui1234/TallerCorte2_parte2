@@ -1,5 +1,5 @@
 package modelo;
-
+import util.IDGenerator;
 import java.time.LocalDate;
 
 public class Reserva {
@@ -10,12 +10,13 @@ public class Reserva {
     private Huesped huesped;
     private Habitacion habitacion;
 
-    public Reserva(String idReserva, LocalDate fechaEntrada, LocalDate fechaSalida, Huesped huesped, Habitacion habitacion) {
-        setIdReserva(idReserva);
-        setFechaEntrada(fechaEntrada);
-        setFechaSalida(fechaSalida);
-        setHuesped(huesped);
-        setHabitacion(habitacion);
+    public Reserva(LocalDate fechaEntrada, LocalDate fechaSalida, Huesped huesped, Habitacion habitacion) {
+        this.idReserva = IDGenerator.generateReservaId();
+        this.fechaEntrada = fechaEntrada;
+        this.fechaSalida = fechaSalida;
+        this.huesped = huesped;
+        this.habitacion = habitacion;
+
     }
 
     public String getIdReserva() {

@@ -15,6 +15,7 @@ public class HabitacionDAO {
     public void agregarHabitacion(Habitacion habitacion) {
         habitaciones.add(habitacion);
     }
+
     //leer
     public List<Habitacion> obtenerTodas() {
         return new ArrayList<>(habitaciones); //retorna copia para proteger la lista original
@@ -42,4 +43,14 @@ public class HabitacionDAO {
     public boolean eliminarHabitacion(int numero) {
         return habitaciones.removeIf(h -> h.getNumero() == numero);
     }
+    public List<Habitacion> obtenerLibres() {
+        List<Habitacion> libres = new ArrayList<>();
+        for (Habitacion h : habitaciones) {
+            if (h.getEstado().equalsIgnoreCase("libre")) {
+                libres.add(h);
+            }
+        }
+        return libres;
+    }
+
 }

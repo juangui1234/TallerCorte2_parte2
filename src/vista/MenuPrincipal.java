@@ -1,8 +1,10 @@
 package vista;
 
+import controlador.ServicioAdicionalControlador;
 import controlador.HabitacionControlador;
 import controlador.HuespedControlador;
 import controlador.ReservaControlador;
+import dao.HabitacionDAO;
 
 import javax.swing.*;
 
@@ -61,6 +63,11 @@ public class MenuPrincipal extends JFrame {
         itemReserva.addActionListener(_ -> abrirPanelReserva());
         menuReserva.add(itemReserva);
 
+        JMenu menuServicio = new JMenu("Servicios");
+        JMenuItem itemServicio = new JMenuItem("Registrar Servicios Adicionales");
+        itemServicio.addActionListener(_ -> abrirPanelServicios());
+        menuServicio.add(itemServicio);
+
         JMenu menuSalir = new JMenu("Salir");
         JMenuItem itemSalir = new JMenuItem("Salir del sistema");
         itemSalir.addActionListener(_ -> {
@@ -74,6 +81,7 @@ public class MenuPrincipal extends JFrame {
         barra.add(menuHuesped);
         barra.add(menuHabitacion);
         barra.add(menuReserva);
+        barra.add(menuServicio);
         barra.add(menuSalir);
 
         setJMenuBar(barra);
@@ -92,6 +100,12 @@ public class MenuPrincipal extends JFrame {
     private void abrirPanelReserva() {
         PanelReserva panel = new PanelReserva(reservaControlador);
         mostrarPanel(panel, "Gestión de Reservas");
+
+    }
+
+    private void abrirPanelServicios() {
+        PanelServicioAdicional panel = new PanelServicioAdicional(new ServicioAdicionalControlador(), new HabitacionDAO());
+        mostrarPanel(panel, "Gestión de Servicios Adicionales");
     }
 
     private void mostrarPanel(JPanel panel, String titulo) {

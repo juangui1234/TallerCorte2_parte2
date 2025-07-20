@@ -1,16 +1,24 @@
 package util;
 
+public class IDGenerator {
+    private static int contadorReserva = 1;
+    private static int contadorHuesped = 1;
+    private static int contadorHabitacion = 1;
+    private static int contadorServicio = 1;
 
-    public class IDGenerator {
+    public static String generateReservaId() {
+        return "RES-" + contadorReserva++;
+    }
 
-        // Contador interno estático (se comparte en todas las llamadas)
-        private static int contador = 1;
+    public static String generateHuespedId() {
+        return "HUE-" + contadorHuesped++;
+    }
 
-        // Metodo estático que genera el ID único
-        public static String generateReservaId() {
-            String id = "RES-" + contador;
-            contador++; // Incrementamos para el siguiente ID
-            return id;
-        }
-    // generateReservaId()
+    public static String generateHabitacionId() {
+        return "HAB-" + contadorHabitacion++;
+    }
+
+    public static String generateServicioId() {
+        return "SER-" + contadorServicio++;
+    }
 }

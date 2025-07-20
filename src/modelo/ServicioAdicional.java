@@ -1,18 +1,20 @@
 package modelo;
+import util.IDGenerator;
+
 
 public class ServicioAdicional {
 
-    private int idServicio;
+    private String idServicio;
     private String nombre;
     private double precio;
 
-    public ServicioAdicional(int idServicio, String nombre, double precio) {
-        this.idServicio = idServicio;
+    public ServicioAdicional(String nombre, double precio) {
+        this.idServicio = IDGenerator.generateServicioId();
         this.nombre = nombre;
         this.precio = precio;
     }
 
-    public int getIdServicio() {
+    public String getIdServicio() {
         return idServicio;
     }
 

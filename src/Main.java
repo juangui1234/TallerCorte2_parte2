@@ -1,5 +1,6 @@
 import javax.swing.*;
 import vista.MenuPrincipal;
+import util.IDGenerator;
 
 public class Main {
     public static void main(String[] args) {
@@ -8,14 +9,16 @@ public class Main {
             ventana.setVisible(true);
         });
     }
+
 }
 
-/*public class Main {
-    public static void main(String[] args) {
-        System.out.println(IDGenerator.generateHuespedId());     // HUE-1
-        System.out.println(IDGenerator.generateHabitacionId());  // HAB-1
-        System.out.println(IDGenerator.generateServicioId());    // SER-1
-        System.out.println(IDGenerator.generateReservaId());     // RES-1
+/* public class Main {
+        public static void main(String[] args) {
+            System.out.println(IDGenerator.generateReservaId());    // RES-1
+            System.out.println(IDGenerator.generateHuespedId());    // HUE-1
+            System.out.println(IDGenerator.generateHabitacionId()); // HAB-1
+            System.out.println(IDGenerator.generateServicioId());   // SER-1
+        }
     }
 }
 

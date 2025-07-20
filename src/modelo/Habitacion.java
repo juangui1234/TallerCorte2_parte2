@@ -1,6 +1,7 @@
 package modelo;
 import java.util.ArrayList;
 import java.util.List;
+import util.IDGenerator;
 
 public class Habitacion {
 
@@ -10,18 +11,41 @@ public class Habitacion {
     private String estado;  //(libre, ocupada, mantenimiento)
     // 🔗 Relación: 1 a muchos con Reserva
     private List<Reserva> reservas;
+    private String idHabitacion;
+    private List<ServicioAdicional> serviciosAdicionales;
 
     //constructor
     public Habitacion(int numero, String tipo, int capacidad, String estado) {
+        this.idHabitacion = IDGenerator.generateHabitacionId(); // ✅ ID automático
         setNumero(numero);
         setTipo(tipo);
         setCapacidad(capacidad);
         setEstado(estado);
         this.reservas = new ArrayList<>();
+        this.serviciosAdicionales = new ArrayList<>();
     }
     //Getters y Setters
+
     public List<Reserva> getReservas() {
         return reservas;
+    }
+
+    public String getIdHabitacion() {
+        return idHabitacion;
+    }
+
+    public List<ServicioAdicional> getServiciosAdicionales() {
+        return serviciosAdicionales;
+    }
+
+    public void agregarServicio(ServicioAdicional servicio) {
+        if (servicio != null && !serviciosAdicionales.contains(servicio)) {
+            serviciosAdicionales.add(servicio);
+        }
+    }
+
+    public boolean eliminarServicio(ServicioAdicional servicio) {
+        return serviciosAdicionales.remove(servicio);
     }
 
     public void agregarReserva(Reserva reserva) {

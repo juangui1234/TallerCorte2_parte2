@@ -39,6 +39,8 @@ public class ReservaControlador {
             throw new FechaInvalidaException("La fecha de salida debe ser posterior a la de entrada.");
         }
 
+
+
         // Validar huésped
         Huesped huesped = huespedDAO.buscarPorDocumento(dto.getDocumentoHuesped());
         if (huesped == null) {
@@ -61,20 +63,27 @@ public class ReservaControlador {
             }
         }
 
-        // Generar ID único
-        String id = IDGenerator.generateReservaId();
-
         // Crear reserva
-        Reserva nueva = new Reserva(id, dto.getFechaEntrada(), dto.getFechaSalida(), huesped, habitacion);
+        Reserva nueva = new Reserva(dto.getFechaEntrada(), dto.getFechaSalida(), huesped, habitacion);
         reservaDAO.agregarReserva(nueva);
     }
-
+    public List<Habitacion> obtenerHabitacionesLibres() {
+        return habitacionDAO.obtenerLibres();
+    }
     public List<Reserva> obtenerTodas() {
         return reservaDAO.obtenerTodas();
     }
-
+    public List<Reserva> buscarPorDocumentoHuesped(String documento) {
+        return reservaDAO.buscarPorDocumentoHuesped(documento);
+    }
     public boolean cancelarReserva(String idReserva) {
-        return reservaDAO.eliminarReserva(idReserva);
+        Reserva reserva = reservaDAO.buscarPorId(idReserva);
+        if (reserva != null) {
+            // Liberar habitación
+            reserva.getHabitacion().setEstado("libre");
+            return reservaDAO.eliminarReserva(idReserva);
+        }
+        return false;
     }
 
 }
