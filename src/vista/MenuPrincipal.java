@@ -104,7 +104,10 @@ public class MenuPrincipal extends JFrame {
     }
 
     private void abrirPanelServicios() {
-        PanelServicioAdicional panel = new PanelServicioAdicional(new ServicioAdicionalControlador(), new HabitacionDAO());
+        PanelServicioAdicional panel = new PanelServicioAdicional(
+                new ServicioAdicionalControlador(),
+                habitacionControlador.getDao()
+        );
         mostrarPanel(panel, "Gestión de Servicios Adicionales");
     }
 

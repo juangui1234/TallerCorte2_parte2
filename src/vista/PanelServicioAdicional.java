@@ -158,19 +158,32 @@ public class PanelServicioAdicional extends JPanel {
             habitacion.agregarServicio(servicio);
             JOptionPane.showMessageDialog(this, "Servicio asignado correctamente.");
             cargarServiciosAsignados(habitacion);
+            cargarServicios();
         }
     }
 
     private void cargarServicios() {
-        List<ServicioAdicional> servicios = controlador.obtenerTodos();
-        String[] columnas = {"ID", "Nombre", "Precio"};
+        String[] columnas = {"ID Servicio", "Nombre", "Precio", "Habitación"};
         DefaultTableModel modelo = new DefaultTableModel(columnas, 0);
 
-        for (ServicioAdicional s : servicios) {
+        List<ServicioAdicional> todosLosServicios = controlador.obtenerTodos();
+        List<Habitacion> habitaciones = habitacionDAO.obtenerTodas();
+
+        for (ServicioAdicional servicio : todosLosServicios) {
+            String habitacionAsignada = "No asignado";
+
+            for (Habitacion habitacion : habitaciones) {
+                if (habitacion.getServiciosAdicionales().contains(servicio)) {
+                    habitacionAsignada = "Habitación " + habitacion.getNumero();
+                    break;
+                }
+            }
+
             modelo.addRow(new Object[]{
-                    s.getIdServicio(),
-                    s.getNombre(),
-                    s.getPrecio()
+                    servicio.getIdServicio(),
+                    servicio.getNombre(),
+                    servicio.getPrecio(),
+                    habitacionAsignada
             });
         }
 
